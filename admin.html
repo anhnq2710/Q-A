@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bài Thi</title>
+    <link rel="stylesheet" type="text/css" href="baithi.css">
+</head>
+<body>
+    <div id="timer">
+        <h3>Thời gian còn lại:</h3>
+        <span id="minutes">30</span>:<span id="seconds">00</span>
+    </div>
+    <div id="questions">
+        <h2>Câu hỏi 1:</h2>
+        <p>Số học sinh trong lớp E21</p>
+        <div class="options">
+            <input type="radio" name="answer1" value="a"> A. 30<br>
+            <input type="radio" name="answer1" value="b"> B. 42<br>
+            <input type="radio" name="answer1" value="c"> C. 37<br>
+            <input type="radio" name="answer1" value="d"> D. 21<br>
+        </div>
+    </div>
+    <div id="questions">
+        <h2>Câu hỏi 2:</h2>
+        <p>Có mấy ngày trong tuần</p>
+        <div class="options">
+            <input type="radio" name="answer2" value="a"> A. 3 ngày<br>
+            <input type="radio" name="answer2" value="b"> B. 7 ngày<br>
+            <input type="radio" name="answer2" value="c"> C. 8 ngày<br>
+            <input type="radio" name="answer2" value="d"> D. 12 ngày<br>
+        </div>
+    </div>
+
+    <button id="submit">Nộp bài</button>
+
+    <div id="result" style="display: none;">
+        <h3>Kết quả:</h3>
+        <p>Số câu trả lời đúng: <span id="correct"></span></p>
+        <p>Tổng số câu: <span id="total"></span></p>
+        <p>Điểm số: <span id="score"></span></p>
+    </div>
+
+    <script>
+      // Bộ đếm thời gian
+var seconds = 30 * 60;
+var interval;
+
+function countdown() {
+    var minutes = Math.floor(seconds / 60);
+    var remainingSeconds = seconds % 60;
+
+    document.getElementById("minutes").textContent = padNumber(minutes);
+    document.getElementById("seconds").textContent = padNumber(remainingSeconds);
+
+    if (seconds <= 0) {
+        clearInterval(interval);
+        submitAnswer();
+    } else {
+        seconds--;
+    }
+}
+
+function padNumber(number) {
+    return (number < 10 ? "0" : "") + number;
+}
+
+interval = setInterval(countdown, 1000);
+
+function submitAnswer() {
+    clearInterval(interval);
+    var correctAnswers = 0;
+    var totalQuestions = 0;
+
+    var question1Answer = document.querySelector('input[name="answer1"]:checked');
+    if (question1Answer && question1Answer.value === "c") {
+        correctAnswers++;
+    }
+    totalQuestions++;
+
+    var question2Answer = document.querySelector('input[name="answer2"]:checked');
+    if (question2Answer && question2Answer.value === "b") {
+        correctAnswers++;
+    }
+    totalQuestions++;
+
+
+    var score = (correctAnswers / totalQuestions) * 100;
+
+    window.location.href = "ketqua.html?correct=" + correctAnswers + "&total=" + totalQuestions + "&score=" + score.toFixed(2);
+}
+
+document.getElementById("submit").addEventListener("click", submitAnswer);
+    </script>
+</body>
+</html>

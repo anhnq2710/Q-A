@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bài Thi</title>
+    <link rel="stylesheet" type="text/css" href="baithi.css">
+</head>
+<body>
+    <div id="timer">
+        <h3>Thời gian còn lại:</h3>
+        <span id="minutes">30</span>:<span id="seconds">00</span>
+    </div>
+    <div id="questions">
+        <h2>Câu hỏi 1:</h2>
+        <p>Số học sinh trong lớp E21</p>
+        <div class="options">
+            <input type="radio" name="answer1" value="A"> A. 30<br>
+            <input type="radio" name="answer1" value="B"> B. 42<br>
+            <input type="radio" name="answer1" value="C"> C. 37<br>
+            <input type="radio" name="answer1" value="D"> D. 21<br>
+        </div>
+    </div>
+    <div id="questions">
+        <h2>Câu hỏi 2:</h2>
+        <p>Có mấy ngày trong tuần</p>
+        <div class="options">
+            <input type="radio" name="answer2" value="A"> A. 3 ngày<br>
+            <input type="radio" name="answer2" value="B"> B. 7 ngày<br>
+            <input type="radio" name="answer2" value="C"> C. 8 ngày<br>
+            <input type="radio" name="answer2" value="D"> D. 12 ngày<br>
+        </div>
+    </div>
+
+    <button id="submit">Nộp bài</button>
+
+    <div id="result" style="display: none;">
+        <h3>Kết quả:</h3>
+        <p>Số câu trả lời đúng: <span id="correct"></span></p>
+        <p>Tổng số câu: <span id="total"></span></p>
+        <p>Điểm số: <span id="score"></span></p>
+    </div>
+
+    <script src="baithi.js"></script>
+</body>
+</html>

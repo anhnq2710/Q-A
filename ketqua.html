@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kết quả</title>
+    <link rel="stylesheet" type="text/css" href="baithi.css">
+</head>
+<body>
+    <div id="result">
+        <h3>Kết quả:</h3>
+        <p>Số câu trả lời đúng: <span id="correct"></span></p>
+        <p>Tổng số câu: <span id="total"></span></p>
+        <p>Điểm số: <span id="score"></span></p>
+    </div>
+
+    <div id="answers" style="display: none;">
+        <h3>Câu trả lời chi tiết:</h3>
+        <div id="question1-answer">
+            <h4>Câu hỏi 1:</h4>
+            <p>Câu trả lời của bạn: <span id="answer1"></span></p>
+            <p>Đáp án đúng: <span id="correct-answer1"></span></p>
+        </div>
+        <div id="question2-answer">
+            <h4>Câu hỏi 2:</h4>
+            <p>Câu trả lời của bạn: <span id="answer2"></span></p>
+            <p>Đáp án đúng: <span id="correct-answer2"></span></p>
+        </div>
+        <!-- Thêm phần tử tương tự cho các câu hỏi khác -->
+    </div>
+
+    <script>
+        // Lấy thông tin từ URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var correctAnswers = parseInt(urlParams.get('correct'));
+        var totalQuestions = parseInt(urlParams.get('total'));
+        var score = parseFloat(urlParams.get('score'));
+
+        // Hiển thị số câu trả lời đúng và tổng số câu
+        document.getElementById('correct').textContent = correctAnswers;
+        document.getElementById('total').textContent = totalQuestions;
+
+        // Tính toán và hiển thị điểm số
+        document.getElementById('score').textContent = score.toFixed(0);
+
+        // Hiển thị câu trả lời chi tiết
+        document.getElementById('answers').style.display = 'block';
+
+        // Lấy thông tin về câu trả lời và đáp án đúng
+        var question1Answer = urlParams.get('answer1');
+        var correctAnswer1 = 'C. 37';
+        var question2Answer = urlParams.get('answer2');
+        var correctAnswer2 = 'B. 7 ngày';
+
+        // Hiển thị câu trả lời và đáp án đúng cho câu hỏi 1
+        document.getElementById('answer1').textContent = question1Answer;
+        document.getElementById('correct-answer1').textContent = correctAnswer1;
+
+        // Hiển thị câu trả lời và đáp án đúng cho câu hỏi 2
+        document.getElementById('answer2').textContent = question2Answer;
+        document.getElementById('correct-answer2').textContent = correctAnswer2;
+
+        // Có thể thêm mã JavaScript tương tự cho các câu hỏi khác
+    </script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trang chính</title>
+  <style>
+    /* CSS để tạo kiểu cho giao diện người dùng */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .search-container {
+      margin-bottom: 20px;
+    }
+
+    .search-container input[type=text] {
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .status-filter {
+      margin-bottom: 20px;
+    }
+
+    .status-filter select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .exam-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .exam-list-item {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .exam-list-item h3 {
+      margin: 0;
+    }
+
+    .exam-list-item p {
+      margin-top: 5px;
+    }
+
+    .start-button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Trang chính</h1>
+
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Tìm kiếm theo tên">
+    </div>
+
+    <div class="status-filter">
+      <select id="status-filter-select">
+        <option value="">Tất cả</option>
+        <option value="open">Mở</option>
+        <option value="closed">Đóng</option>
+      </select>
+    </div>
+
+    <ul class="exam-list" id="exam-list">
+      <!-- Danh sách các kỳ thi sẽ được thêm vào đây bằng JavaScript -->
+    </ul>
+  </div>
+
+  <script>
+    // Dữ liệu mẫu về danh sách các kỳ thi
+    var exams = [
+      {
+        name: "Kỳ thi A",
+        status: "open"
+      },
+      {
+        name: "Kỳ thi B",
+        status: "closed"
+      },
+      {
+        name: "Kỳ thi C",
+        status: "open"
+      },
+      {
+        name: "Kỳ thi D",
+        status: "closed"
+      }
+    ];
+
+    // Hiển thị danh sách các kỳ thi ban đầu
+    displayExamList(exams);
+
+    // Xử lý sự kiện khi người dùng nhập vào ô tìm kiếm
+    document.getElementById('search-input').addEventListener('input', function() {
+      var searchTerm = this.value.toLowerCase();
+      var filteredExams = exams.filter(function(exam) {
+        return exam.name.toLowerCase().includes(searchTerm);
+      });
+      displayExamList(filteredExams);
+    });
+
+    // Xử lý sự kiện khi người dùng chọn lọc theo trạng thái kỳ thi
+    document.getElementById('status-filter-select').addEventListener('change', function() {
+      var statusFilter = this.value;
+      var filteredExams = exams.filter(function(exam) {
+        if (statusFilter === "") {
+          return true;
+        } else {
+          return exam.status === statusFilter;
+        }
+      });
+      displayExamList(filteredExams);
+    });
+
+    // Hàm hiển thị danh sách các kỳ thi
+    function displayExamList(examData) {
+      var examListElement = document.getElementById('exam-list');
+      examListElement.innerHTML = '';
+
+      if (examData.length === 0) {
+        var noResultItem = document.createElement('li');
+        noResultItem.textContent = 'Không có kết quả phù hợp.';
+        examListElement.appendChild(noResultItem);
+      } else {
+        examData.forEach(function(exam) {
+          var examItem = document.createElement('li');
+          examItem.className = 'exam-list-item';
+
+          var examName = document.createElement('h3');
+          examName.textContent = exam.name;
+          examItem.appendChild(examName);
+
+          var examStatus = document.createElement('p');
+          examStatus.textContent = 'Trạng thái: ' + exam.status;
+          examItem.appendChild(examStatus);
+
+          var startButton = document.createElement('button');
+          startButton.className = 'start-button';
+          startButton.textContent = 'Bắt đầu';
+          // Xử lý sự kiện khi người dùng nhấp vào nút "Bắt đầu"
+          startButton.addEventListener('click', function() {
+            startExam(exam.name,exam.status);
+          });
+          examItem.appendChild(startButton);
+
+          examListElement.appendChild(examItem);
+        });
+      }
+    }
+
+    // Hàm xử lý khi người dùng nhấp vào nút "Bắt đầu" của một kỳ thi
+    function startExam(examName,examStatus) {
+      // Thực hiện các hành động cần thiết khi bắt đầu làm bài thi
+      if (examName === "Kỳ thi A" && examStatus ==="open"){
+        window.location.href = "baithi.html"
+      }
+      else{
+        console.log("Không thể tham gia bài thi này")
+      }
+      if (examName === "Kỳ thi B" && examStatus ==="open"){
+        window.location.href = "baithi.html"
+      }
+      else{
+        console.log("Không thể tham gia bài thi này")
+      }
+      if (examName === "Kỳ thi C" && examStatus ==="open"){
+        window.location.href = "baithi.html"
+      }
+      else{
+        console.log("Không thể tham gia bài thi này")
+      }
+      if (examName === "Kỳ thi D" && examStatus ==="open"){
+        window.location.href = "baithi.html"
+      }
+      else{
+        console.log("Không thể tham gia bài thi này")
+      }
+    }
+  </script>
+</body>
+</html>
