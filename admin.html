@@ -9,18 +9,35 @@
     <h1>Admin </h1>
     <nav>
       <ul>
-        <li><a href="create-exam.html">Create/Edit Exam</a></li>
         <li><a href="statistics.html">Statistics</a></li>
         <li><a href="view-results.html">View Results</a></li>
       </ul>
     </nav>
   </header>
   <section id="content">
-    <!-- Content goes here -->
+    <div class="container">
+      <h1>Chỉnh sửa bài thi</h1>
+  
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Tìm kiếm theo tên">
+      </div>
+  
+      <div class="status-filter">
+        <select id="status-filter-select">
+          <option value="">Tất cả</option>
+          <option value="open">Mở</option>
+          <option value="closed">Đóng</option>
+        </select>
+      </div>
+  
+      <ul class="exam-list" id="exam-list">
+        <!-- Danh sách các kỳ thi sẽ được thêm vào đây bằng JavaScript -->
+      </ul>
+    </div>
   </section>
   <footer>
     <p>&copy; 2024 Admin Dashboard</p>
   </footer>
-  <script src="script.js"></script>
+  <script src="admin.js"></script>
 </body>
 </html>
