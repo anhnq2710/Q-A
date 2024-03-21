@@ -24,6 +24,21 @@
             <p>Câu trả lời của bạn: <span id="answer2"></span></p>
             <p>Đáp án đúng: <span id="correct-answer2"></span></p>
         </div>
+        <div id="question3-answer">
+            <h4>Câu hỏi 3:</h4>
+            <p>Câu trả lời của bạn: <span id="answer3"></span></p>
+            <p>Đáp án đúng: <span id="correct-answer3"></span></p>
+        </div>
+        <div id="question4-answer">
+            <h4>Câu hỏi 4:</h4>
+            <p>Câu trả lời của bạn: <span id="answer4"></span></p>
+            <p>Đáp án đúng: <span id="correct-answer4"></span></p>
+        </div>
+        <div id="question5-answer">
+            <h4>Câu hỏi 5:</h4>
+            <p>Câu trả lời của bạn: <span id="answer5"></span></p>
+            <p>Đáp án đúng: <span id="correct-answer5"></span></p>
+        </div>
         <!-- Thêm phần tử tương tự cho các câu hỏi khác -->
     </div>
 
@@ -46,9 +61,15 @@
 
         // Lấy thông tin về câu trả lời và đáp án đúng
         var question1Answer = urlParams.get('answer1');
-        var correctAnswer1 = 'C. 37';
+        var correctAnswer1 = "C"
         var question2Answer = urlParams.get('answer2');
-        var correctAnswer2 = 'B. 7 ngày';
+        var correctAnswer2 = "B"
+        var question3Answer = urlParams.get('answer3');
+        var correctAnswer3 = "D"
+        var question4Answer = urlParams.get('answer4');
+        var correctAnswer4 = "C"
+        var question5Answer = urlParams.get('answer5');
+        var correctAnswer5 = "A"
 
         // Hiển thị câu trả lời và đáp án đúng cho câu hỏi 1
         document.getElementById('answer1').textContent = question1Answer;
@@ -57,6 +78,15 @@
         // Hiển thị câu trả lời và đáp án đúng cho câu hỏi 2
         document.getElementById('answer2').textContent = question2Answer;
         document.getElementById('correct-answer2').textContent = correctAnswer2;
+
+        document.getElementById('answer3').textContent = question3Answer;
+        document.getElementById('correct-answer3').textContent = correctAnswer3;
+
+        document.getElementById('answer4').textContent = question4Answer;
+        document.getElementById('correct-answer4').textContent = correctAnswer4;
+
+        document.getElementById('answer5').textContent = question5Answer;
+        document.getElementById('correct-answer5').textContent = correctAnswer5;
 
         // Có thể thêm mã JavaScript tương tự cho các câu hỏi khác
     </script>
