@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+}
+
+h2, h3 {
+    color: #FFFFFF;
+    background-color: #AD171C;
+}
+
+input[type="text"], input[type="number"], button {
+    margin: 5px;
+    padding: 5px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+button { 
+    padding: 10px 20px;
+    background-color: white;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+h1, h1.button {
+    background-color: #AD171C;
+    
+}
+

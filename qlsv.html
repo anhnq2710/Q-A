@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lí danh sách sinh viên</title>
+    <link rel="stylesheet" href="qlsv.css">
+</head>
+<body>
+    <h1>
+        <button><a href="admin.html">Trang chủ</a></button>
+    </h1>
+
+    <h2>Quản lí danh sách sinh viên</h2>
+
+        <table id="student-table">
+            <thead>
+                <tr>
+                    <th style="width: 150px;">Mã SV</th>
+                    <th style="width: 200px;">Họ và tên</th>
+                    <th style="width: 150px;">Lớp</th>
+                    <th style="width: 100px;">SĐT</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+   
+    <div id="form-container">
+        <h3>Thêm mới hoặc sửa thông tin sinh viên</h3>
+        <input type="text" id="ID" placeholder="Mã SV">
+        <input type="text" id="name" placeholder="Tên sinh viên">
+        <input type="text" id="course" placeholder="Lớp">
+        <input type="number" id="phone" placeholder="SĐT">
+        <button id="save-btn">Lưu</button>
+        <input type="hidden" id="edit-index">
+    </div>
+
+    <script src="qlsv.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Thống kê</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="thongke.js"></script>
+  <link rel="stylesheet" href="thongke.css">
+</head>
+<body>
+  <h2>Trang Thống kê</h2>
+
+  <div id="filterForm">
+    <label for="examSelect">Chọn kỳ thi:</label>
+    <select id="examSelect">
+      <option value="all">Tất cả</option>
+      <option value="exam1">Kỳ thi 1</option>
+      <option value="exam2">Kỳ thi 2</option>
+      <option value="exam3">Kỳ thi 3</option>
+    </select>
+  </div>
+
+  <div id="statsContainer">
+    <h3>Tổng quan</h3>
+    <p>Tổng số lần tham gia: <span id="totalAttempts"></span></p>
+    <p>Tỷ lệ hoàn thành: <span id="completionRate"></span></p>
+    <p>Điểm trung bình: <span id="averageScore"></span></p>
+
+    <h3>Phân phối điểm số</h3>
+    <canvas id="scoreDistributionChart"></canvas>
+  </div>
+
+  <script src="chart.js"></script>
+</body>
+</html>
